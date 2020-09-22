@@ -10,9 +10,9 @@ The purpose is to document all the code written, and also catalog it for future 
 
 2. Use the ``MakeFile`` to automatically compile all the library code and run the executable
 
-``bash
+```bash
 make all
-``
+```
 
 This compiles all the files including the ``main.cpp`` and runs it to show the output.
 
