@@ -1,8 +1,10 @@
 // Class Date public interface specification. This hides all the implementation details.
-
+#ifndef DATE_H
+#define DATE_H
 class Date{
     public:
         Date(int, int, int); // constructor to initialize data fields
+        Date(); // default contructor to set all ones
 
         int getMonth(); // get function for month
         void setMonth(int); // set function for month
@@ -19,3 +21,4 @@ class Date{
         int day;
         int year;
 };
+#endif

@@ -4,6 +4,7 @@
 #include "Invoice.h"
 #include "Employee.h"
 #include "Date.h"
+#include "HeartRates.h"
 
 using namespace std;
 
@@ -21,8 +22,15 @@ int main(){
     // cout << "Yearly salary of " << myEmployee.getFirstName() << " " << myEmployee.getLastName()
     //      << " is $" << myEmployee.getSalary()*12 << endl;
     
-    Date myDate(9, 22, 2020);
-    cout << "Today is "; myDate.displayDate(); cout << endl;
+    // Date myDate(9, 22, 2020);
+    // cout << "Today is "; myDate.displayDate(); cout << endl;
+
+    Date myDateOfBirth(8, 15, 1990);
+    HeartRates myHeartRates("John", "McClane", myDateOfBirth);
+
+    TargetHeartRateRange myTargetHeartRateRange = myHeartRates.getTargetHeartRate();
+    cout << "Target rate: " << myTargetHeartRateRange.minTargetHeartRate << "-" 
+         << myTargetHeartRateRange.maxTargetHeartRate << " BPM" << endl;
 
     return 0;
 }

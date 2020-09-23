@@ -11,6 +11,13 @@ Date::Date(int givenMonth, int givenDay, int givenYear){
     setYear(givenYear);
 }
 
+// default constructor to set all ones
+Date::Date(){
+    setMonth(1);
+    setDay(1);
+    setYear(1);
+}
+
 // get function for month
 int Date::getMonth(){
     return month;

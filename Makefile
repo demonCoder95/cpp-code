@@ -13,6 +13,9 @@ employee : Employee.h Employee.cpp
 date : Date.h Date.cpp
 	c++ -c Date.h Date.cpp
 
+heartrates: HeartRates.h HeartRates.cpp
+	c++ -c HeartRates.h HeartRates.cpp
+
 all:
 	g++ *.h *.cpp
 	./a.out
