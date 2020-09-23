@@ -1,4 +1,7 @@
 // Class HeartRates public interface specification. This hides implementation details.
+#ifndef HEARTRATES_H
+#define HEARTRATES_H
+
 #include <string>
 #include "Date.h"
 using namespace std;
@@ -12,6 +15,7 @@ struct TargetHeartRateRange {
 class HeartRates{
     public:
         HeartRates(string, string, Date);   // constructor for class
+        HeartRates(); // default constructor for class
 
         string getFirstName(); // function to get firstName
         void setFirstName(string); // function to set firstName
@@ -31,3 +35,5 @@ class HeartRates{
         Date dateOfBirth;
 
 };
+
+#endif

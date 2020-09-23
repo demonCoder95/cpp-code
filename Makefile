@@ -16,6 +16,9 @@ date : Date.h Date.cpp
 heartrates: HeartRates.h HeartRates.cpp
 	c++ -c HeartRates.h HeartRates.cpp
 
+healthprofile: HealthProfile.h HealthProfile.cpp
+	c++ -c HealthProfile.h HealthProfile.cpp
+
 all:
 	g++ *.h *.cpp
 	./a.out

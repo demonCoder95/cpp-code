@@ -6,9 +6,15 @@
 using namespace std;
 
 HeartRates::HeartRates(string givenFirstName, string givenLastName, Date givenDateOfBirth){
+    // TODO: Figure out why we need default consructor for Date class for this
     setFirstName(givenFirstName);
     setLastName(givenLastName);
     dateOfBirth = givenDateOfBirth;
+}
+
+HeartRates::HeartRates(){
+    setFirstName("");
+    setLastName("");
 }
 
 // get function for firstName
