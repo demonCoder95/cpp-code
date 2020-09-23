@@ -11,7 +11,13 @@ GradeBook::GradeBook(string nameOfCourse, string nameOfInstructor){
 
 // function to set courseName
 void GradeBook::setCourseName(string name){
-    courseName = name;
+    if (name.length() < 25){
+        courseName = name;
+    } else {
+        courseName = name.substr(0, 25);
+        cerr << "Name " << name << " exceeds maximum length (25).\n" 
+             << "Limiting length to 25 characters." << endl;
+    }
 }
 
 // function to get courseName
