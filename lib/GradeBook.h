@@ -15,6 +15,8 @@ class GradeBook {
 
         string getInstructorName(); // function to get instructorName
         void setInstructorName(string); // function to set instructorName
+
+        void determineClassAverage(); // average grades entered by user
     private:
         string courseName; // courseName for GradeBook
         string instructorName; // instructorName for GradeBook

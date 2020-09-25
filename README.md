@@ -4,7 +4,16 @@ This repository contains the solutions developed for solving various exercises i
 
 The purpose is to document all the code written, and also catalog it for future reuse.
 
+## The Repository Layout
+
+The ``lib`` folder contains all the reusable classes (headers and implementations) along with
+a driver program file ``main.cpp` which you can use to test those classes.
+
+The ``solutions`` folder contains standalone programs each labelled with an exercise number.
+
 ## How to use the repository
+
+Within the ``lib`` directory, you can use the classes as follows:
 
 1. Make necessary changes to the ``main.cpp`` to create a driver program.
 

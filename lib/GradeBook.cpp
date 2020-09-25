@@ -1,5 +1,6 @@
 // Implementation of member function of the GradeBook class
 #include <iostream>
+#include <iomanip>  // parametrized io manipulator
 #include "GradeBook.h"
 using namespace std;
 
@@ -39,4 +40,38 @@ void GradeBook::setInstructorName(string name){
 // function to get the instructorName
 string GradeBook::getInstructorName(){
     return instructorName;
+}
+
+// determine class average of 10 grades entered by the user
+void GradeBook::determineClassAverage(){
+    int total; // sum of grades entered by user
+    int gradeCounter; // number of grades entered by user
+    int grade; // grade value entered by user
+    double average; // average of grades
+
+    // initialize variables
+    total = 0;
+    gradeCounter = 0;
+
+    cout << "Enter grade or -1 to quit: ";
+    cin >> grade;
+
+    while (grade != -1){
+
+        total += grade;
+        gradeCounter++;
+
+        cout << "Enter grade or -1 to quit: ";
+        cin >> grade;
+    }
+
+    if (gradeCounter != 0){
+
+        average = static_cast<double>(total) / gradeCounter; // integer division for now
+
+        cout << "\nTotal of all " << gradeCounter << " grades is " << total << endl;
+        cout << "Class average is " << setprecision(2) << fixed << average << endl;
+    }else {
+        cout << "No grades were entered" << endl;
+    }
 }
