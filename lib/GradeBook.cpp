@@ -8,6 +8,13 @@ using namespace std;
 GradeBook::GradeBook(string nameOfCourse, string nameOfInstructor){
     setCourseName(nameOfCourse);
     setInstructorName(nameOfInstructor);
+    
+    // Initialize grade counts to 0
+    aCount = 0;
+    bCount = 0;
+    cCount = 0;
+    dCount = 0;
+    fCount = 0;
 }
 
 // function to set courseName
@@ -74,4 +81,55 @@ void GradeBook::determineClassAverage(){
     }else {
         cout << "No grades were entered" << endl;
     }
+}
+
+// Input arbitrary number of grades from the user: upgrade grade counters
+void GradeBook::inputGrades(){
+    int grade;  // grade entered by the user
+
+    cout << "Enter the letter grades." << endl 
+        << "Enter the EOF character to end input." << endl;
+    
+    while ((grade = cin.get()) != EOF ){
+        switch (grade){
+            case 'A':
+            case 'a':
+                ++aCount;
+                break;
+            case 'B':
+            case 'b':
+                ++bCount;
+                break;
+            case 'C':
+            case 'c':
+                ++cCount;
+                break;
+            case 'D':
+            case 'd':
+                ++dCount;
+                break;
+            case 'F':
+            case 'f':
+                ++fCount;
+                break;
+            case '\n':
+            case '\t':
+            case ' ':
+                break;  // ignore whitespaces
+            default:
+                cout << "Incorrect letter grade entered."
+                    << " Enter a new grade. " << endl;
+                break;
+        }
+    }
+}
+
+void GradeBook::displayGradeReport(){
+    cout << "\n\nNumber of students who received each letter grade:"
+        << "\nA: " << aCount
+        << "\nB: " << bCount
+        << "\nC: " << cCount
+        << "\nD: " << dCount
+        << "\nF: " << fCount
+        << endl;
 }

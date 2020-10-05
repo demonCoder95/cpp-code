@@ -12,7 +12,9 @@ using namespace std;
 int main(){
     GradeBook myGradeBook("Linux Programming", "Noor Muhammad");
     myGradeBook.displayMessage();
-    myGradeBook.determineClassAverage();
+
+    myGradeBook.inputGrades();
+    myGradeBook.displayGradeReport();
 
     // Account myAccount(100);
     // cout << "My account balance is: " << myAccount.getBalance() << endl;

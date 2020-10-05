@@ -17,7 +17,15 @@ class GradeBook {
         void setInstructorName(string); // function to set instructorName
 
         void determineClassAverage(); // average grades entered by user
+
+        void inputGrades();    // input arbitrary number of grades from user
+        void displayGradeReport(); // display a report based on the grades
     private:
         string courseName; // courseName for GradeBook
         string instructorName; // instructorName for GradeBook
+        int aCount; // count of A grades
+        int bCount; // count of B grades
+        int cCount; // count of C grades
+        int dCount; // count of D grades
+        int fCount; // count of F grades
 };
