@@ -9,12 +9,15 @@ GradeBook::GradeBook(string nameOfCourse, string nameOfInstructor){
     setCourseName(nameOfCourse);
     setInstructorName(nameOfInstructor);
     
-    // Initialize grade counts to 0
-    aCount = 0;
-    bCount = 0;
-    cCount = 0;
-    dCount = 0;
-    fCount = 0;
+    // // Initialize grade counts to 0
+    // aCount = 0;
+    // bCount = 0;
+    // cCount = 0;
+    // dCount = 0;
+    // fCount = 0;
+
+    // initialize maximum grade to 0
+    maximumGrade = 0;
 }
 
 // function to set courseName
@@ -83,53 +86,80 @@ void GradeBook::determineClassAverage(){
     }
 }
 
-// Input arbitrary number of grades from the user: upgrade grade counters
-void GradeBook::inputGrades(){
-    int grade;  // grade entered by the user
+// // Input arbitrary number of grades from the user: upgrade grade counters
+// void GradeBook::inputGrades(){
+//     int grade;  // grade entered by the user
 
-    cout << "Enter the letter grades." << endl 
-        << "Enter the EOF character to end input." << endl;
+//     cout << "Enter the letter grades." << endl 
+//         << "Enter the EOF character to end input." << endl;
     
-    while ((grade = cin.get()) != EOF ){
-        switch (grade){
-            case 'A':
-            case 'a':
-                ++aCount;
-                break;
-            case 'B':
-            case 'b':
-                ++bCount;
-                break;
-            case 'C':
-            case 'c':
-                ++cCount;
-                break;
-            case 'D':
-            case 'd':
-                ++dCount;
-                break;
-            case 'F':
-            case 'f':
-                ++fCount;
-                break;
-            case '\n':
-            case '\t':
-            case ' ':
-                break;  // ignore whitespaces
-            default:
-                cout << "Incorrect letter grade entered."
-                    << " Enter a new grade. " << endl;
-                break;
-        }
-    }
+//     while ((grade = cin.get()) != EOF ){
+//         switch (grade){
+//             case 'A':
+//             case 'a':
+//                 ++aCount;
+//                 break;
+//             case 'B':
+//             case 'b':
+//                 ++bCount;
+//                 break;
+//             case 'C':
+//             case 'c':
+//                 ++cCount;
+//                 break;
+//             case 'D':
+//             case 'd':
+//                 ++dCount;
+//                 break;
+//             case 'F':
+//             case 'f':
+//                 ++fCount;
+//                 break;
+//             case '\n':
+//             case '\t':
+//             case ' ':
+//                 break;  // ignore whitespaces
+//             default:
+//                 cout << "Incorrect letter grade entered."
+//                     << " Enter a new grade. " << endl;
+//                 break;
+//         }
+//     }
+// }
+
+// void GradeBook::displayGradeReport(){
+//     cout << "\n\nNumber of students who received each letter grade:"
+//         << "\nA: " << aCount
+//         << "\nB: " << bCount
+//         << "\nC: " << cCount
+//         << "\nD: " << dCount
+//         << "\nF: " << fCount
+//         << endl;
+// }
+
+void GradeBook::inputGrades(){
+    // grades entered by the user
+    int grade1, grade2, grade3;
+    cout << "Enter three integer grades: ";
+    cin >> grade1 >> grade2 >> grade3;
+
+    maximumGrade = maximum(grade1, grade2, grade3);
 }
 
 void GradeBook::displayGradeReport(){
-    cout << "\n\nNumber of students who received each letter grade:"
-        << "\nA: " << aCount
-        << "\nB: " << bCount
-        << "\nC: " << cCount
-        << "\nD: " << dCount
-        << "\nF: " << fCount
-        << endl;
+    cout << "Maximum of grades entered: " << maximumGrade << endl;
+}
+
+int GradeBook::maximum(int x, int y, int z){
+    int maximumvalue = x;
+
+    if (y > maximumvalue){
+        maximumvalue = y;
+    }
+
+    if (z > maximumvalue){
+        maximumvalue = z;
+    }
+
+    return maximumvalue;
 }

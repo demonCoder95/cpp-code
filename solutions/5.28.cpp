@@ -52,7 +52,7 @@ int main(){
                 break;
         }
 
-        cout << "On the " << dayStr << " of Christmas my true love sent to me" << endl;
+        cout << "On the " << dayStr << " day of Christmas my true love sent to me" << endl;
         
         // Print each verse that collapses onto the previous verses 
         switch (day){

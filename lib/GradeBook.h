@@ -20,12 +20,14 @@ class GradeBook {
 
         void inputGrades();    // input arbitrary number of grades from user
         void displayGradeReport(); // display a report based on the grades
+        int maximum(int, int, int); // determine maximum of 3 values
     private:
         string courseName; // courseName for GradeBook
         string instructorName; // instructorName for GradeBook
-        int aCount; // count of A grades
-        int bCount; // count of B grades
-        int cCount; // count of C grades
-        int dCount; // count of D grades
-        int fCount; // count of F grades
+        // int aCount; // count of A grades
+        // int bCount; // count of B grades
+        // int cCount; // count of C grades
+        // int dCount; // count of D grades
+        // int fCount; // count of F grades
+        int maximumGrade;
 };
