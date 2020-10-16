@@ -5,7 +5,7 @@
 using namespace std;
 
 // constructor of the class
-GradeBook::GradeBook(string nameOfCourse, string nameOfInstructor){
+GradeBook::GradeBook(string nameOfCourse, string nameOfInstructor, const int gradesArray[][tests]){
     setCourseName(nameOfCourse);
     setInstructorName(nameOfInstructor);
     
@@ -18,6 +18,12 @@ GradeBook::GradeBook(string nameOfCourse, string nameOfInstructor){
 
     // initialize maximum grade to 0
     maximumGrade = 0;
+
+    for (int grade = 0; grade < students; grade++){
+        for (int test = 0; test < tests; test++){
+            grades[grade][test] = gradesArray[grade][test];
+        }
+    }
 }
 
 // function to set courseName
@@ -162,4 +168,103 @@ int GradeBook::maximum(int x, int y, int z){
     }
 
     return maximumvalue;
+}
+
+void GradeBook::processGrades(){
+    outputGrades();
+
+    cout << "\nLowest grade is " << getMinimum() << 
+        "\nHighest grade is " << getMaximum() << endl;
+
+    outputBarChart();
+}
+
+int GradeBook::getMinimum(){
+    int lowGrade = 100;
+
+    for (int grade = 0; grade < students; ++grade){
+        for (int test = 0; test < tests; test++){
+            if (grades[grade][test] < lowGrade){
+                lowGrade = grades[grade][test];
+            }
+        }
+    }
+
+    return lowGrade;
+}
+
+int GradeBook::getMaximum(){
+    int highGrade = 0;
+
+    for (int grade = 0; grade < students; ++grade){
+        for (int test = 0; test < tests; test++){
+            if (grades[grade][test] > highGrade){
+                highGrade = grades[grade][test];
+            }
+        }
+    }
+
+    return highGrade;
+}
+
+double GradeBook::getAverage(const int setOfGrades[], const int grades){
+    int total = 0;
+
+    for (int grade = 0; grade < grades; ++grade){
+        total += setOfGrades[grade];
+    }
+
+    return static_cast<double>(total) / grades;
+}
+
+void GradeBook::outputBarChart(){
+    cout << "\nGrade distribution: " << endl;
+
+    // store frequency of grades in ranges of 10
+    const int frequencySize = 11;
+    int frequency[frequencySize] = {};      // initialize to 0
+
+    for (int student =0; student < students; ++student){
+        for (int test = 0; test < tests; test++){
+            ++frequency[grades[student][test]/10];
+        }
+    }
+
+    for (int count = 0; count < frequencySize; ++count){
+        if (count == 0)
+        cout << "  0-9: ";
+        else if (count == 10)
+        cout << "  100: ";
+        else 
+        cout << count * 10 << "-" << (count * 10) + 9 << ": ";
+
+        for (int stars = 0; stars < frequency[count]; ++stars){
+            cout << "*";
+        }
+
+        cout << endl;
+    }
+}
+
+void GradeBook::outputGrades(){
+    cout << "\nThe grades are:\n\n";
+    cout << "            ";
+
+    for (int test = 0; test < tests; test++){
+        cout << "Test " << test + 1 << "  ";
+    }
+
+    cout << "Average" << endl;
+
+
+    for (int student = 0; student < students; student++){
+        cout << "Student " << setw(2) << student + 1;
+        
+        for ( int test = 0; test < tests; ++test){
+            cout << setw(8) << grades[student][test];
+        }
+
+        double average = getAverage(grades[student], tests);
+        cout << setw(9) << setprecision(2) << fixed << average << endl;
+    }
 }
